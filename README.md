@@ -1,2 +1,7 @@
 # lang
-This is a collection of programming languages
+This is a file collection of programming languages of following:
+
+- brainfucks
+- lisp
+- perl
+- shellscript
