@@ -1,0 +1,2 @@
+memb( X, [H|_] ) :- X=H.
+memb( X, [_|T] ) :- memb(X,T).

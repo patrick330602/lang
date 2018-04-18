@@ -1,0 +1,14 @@
+rem([], X, []).
+rem([X|T], X, T).
+rem([Y|T], X, [Y|T2]) :- rem(T, X, T2).
+
+smallest([X], X).
+smallest([X|T], X) :- smallest(T,Y),
+                      X < Y.
+smallest([X|T], Y) :- smallest(T,Y),
+                      Y < X.
+
+ssort([],[]).
+ssort(L,[X|Y]) :- smallest(L,X),
+                  rem(L,X,L2),
+                  ssort(L2,Y).
