@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+#install scripts for lpl puts here.
+
+. lltk-base
+
+function pascal_install
+{
+	sudo apt install fp-compiler fp-ide fp-docs
+}
+
+function lisp_install
+{
+	#echo "choose the complier you want to install:"
+	#echo "----------------------------------------"
+	#echo "1) GNU Common Lisp(gcl)"
+	#echo "2) Steel Bank Common Lisp (sbcl)"
+	#echo "3) Clozure Common Lisp(ccl)"
+	sudo apt install --no-install-recommends gcl
+}

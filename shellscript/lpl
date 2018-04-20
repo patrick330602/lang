@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+# lpl - Little Packages management for Languages.
+
+. lltk-base
+. lpl-install
+. lpl-remove
+
+function install
+{
+	case $1 in
+		"pascal") pascal_install ;;
+		"lisp") lisp_install ;;
+		*)echo "${error}invalid input. Aborted."; exit 1;;
+	esac
+}
+
+function remove 
+{
+	case $1 in
+		"pascal") pascal_remove ;;
+		"lisp") lisp_remove ;;
+		*)echo "${error}invalid input. Aborted."; exit 1;;
+	esac
+}
+
+case $1 in
+	install) install $2 ;exit;;
+	remove) remove $2 ; exit;;
+	*) echo "${error}invalid command."; exit 1;;
+esac
+

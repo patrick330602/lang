@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#lgtd - Little Github Tarball Download
+
+. lltk-base
+
+help="lgtd <username> <repo>"
+
+curl -s https://api.github.com/repos/$1/$2/releases/latest

@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+#remove scripts for lpl puts here.
+
+. lltk-base
+
+function pascal_remove
+{
+	sudo apt purge fp-compiler fp-ide fp-docs
+	rm -rf ~/fp.cfg ~/fp.dsk ~/fp.ini
+}
+
+function lisp_remove
+{
+	sudo apt purge gcl sbcl
+}
