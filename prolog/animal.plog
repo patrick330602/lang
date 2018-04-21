@@ -1,0 +1,10 @@
+cat(a).
+dog(b).
+snake(c).
+
+animal(X):- cat(X).
+animal(X):- dog(X).
+animal(X):- snake(X).
+
+likes(d, X):- animal(X),
+              \+ snake(X).
