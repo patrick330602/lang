@@ -1,0 +1,38 @@
+start(state(farmer(l), chicken(l), corn(l), fox(l))).
+goal(state(farmer(r), chicken(r), corn(r), fox(r))).
+
+opp(l,r).
+opp(r,1\l).
+
+bad(state(farmer(F),chicken(H),corn(C), fox(_))):-H=C,opp(F,H).
+bad(state(farmer(F),chicken(H),corn(_), fox(X))):-H=X,opp(F,H).
+
+trans(state(farmer(T), chicken(T),corn(C), fox(W)),
+      state(farmer(T1), chicken(T1),corn(C), fox(W))):-opp(T,T1).
+
+trans(state(farmer(T), chicken(G),corn(T), fox(W)),
+      state(farmer(T1), chicken(G),corn(T1), fox(W))):-opp(T,T1).
+
+trans(state(farmer(T), chicken(G),corn(C), fox(T)),
+      state(farmer(T1), chicken(G),corn(C), fox(T1))):-opp(T,T1).
+
+trans(state(farmer(T), chicken(G),corn(C), fox(W)),
+      state(farmer(T1), chicken(G),corn(C), fox(W))):-opp(T,T1).
+
+canCross(S):-goal(S).
+canCross(S):-trans(S,SN),
+             \+ bad(SN),
+             canCross(SN).
+
+crossHist(S,H):-goal(S).
+crossHist(S,H):-trans(S,SN),
+                \+ bad(SN),
+		\+ member(SN,H),
+                crossHist(S,[S|H]).
+
+plan(S,H, [S|H]) :- goal(S).
+plan(S,H,P)      :- trans(S,SN),
+                    \+ bad(SN),
+                    \+ member(SN,H),
+                    plan(SN, [S|H], P).
+
