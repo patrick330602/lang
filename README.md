@@ -2,8 +2,9 @@
 This is a file collection of programming languages of following:
 
 - brainfucks
-- Lex
+- lex
 - lisp
+- luas
 - perl
 - prolog
 - shellscript
