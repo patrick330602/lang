@@ -65,6 +65,10 @@ function tmlr_download()
         dialog --clear --msgbox "Download Complete." 6 15
     fi
 }
+function start_xfce()
+{
+    xfce4-session  
+}
 #
 # set infinite loop
 #
@@ -81,6 +85,7 @@ Choose the TASK" 16 50 5 \
 HexoGen "Hexo - Website Generation" \
 HexoNew "Hexo - New Post" \
 TmlrDown "Drive P Tumblr Downloader" \
+LDE "Start Linux Desktop Environment" \
 Exit "Exit to the shell" 2> input
 
 menuitem=$(cat input)
@@ -91,6 +96,7 @@ case $menuitem in
 	HexoGen) hexo_generate;;
 	HexoNew) hexo_post;;
     TmlrDown) tmlr_download;;
+    LDE) start_xfce;;
 	Exit) clear; break;;
 esac
 
