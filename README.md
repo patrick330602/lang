@@ -1,5 +1,8 @@
 # lang
-This is a file collection of programming languages of following:
+
+This is a collection of programming languages I am learning or I learned.
+
+It contains the following languages:
 
 - Brainfuck
 - Lex
